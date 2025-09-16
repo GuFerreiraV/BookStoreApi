@@ -1,5 +1,6 @@
 ﻿using BookStoreApi.Interfaces;
 using BookStoreApi.Models;
+using BookStoreApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStoreApi.Controllers
@@ -8,8 +9,8 @@ namespace BookStoreApi.Controllers
     [Route("api/[controller]")]
     public class BooksController : ControllerBase
     {
-        private readonly IBooksService _booksService;
-        public BooksController(IBooksService booksService) => _booksService = booksService;
+        private readonly BooksService _booksService;
+        public BooksController(BooksService booksService) => _booksService = booksService;
 
         [HttpGet]
         public async Task<List<Book>> Get() => await _booksService.GetAsync();
