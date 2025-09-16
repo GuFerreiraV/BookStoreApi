@@ -1,6 +1,30 @@
 @BookStoreApi_HostAddress = http://localhost:5034
 
-GET {{BookStoreApi_HostAddress}}/weatherforecast/
-Accept: application/json
+
+
+GET {{BookStoreApi_HostAddress}}/api/books
+
+###
+
+DELETE {{BookStoreApi_HostAddress}}/api/Books/68c96abe65bb596d2c735189
+
+###
+
+GET {{BookStoreApi_HostAddress}}/api/Books/68c96abe65bb596d2c73518a
+
+###
+
+PUT {{BookStoreApi_HostAddress}}/api/Books/68c96abe65bb596d2c73518a
+Content-Type: application/json
+
+{
+  "Id": "68c96abe65bb596d2c73518a",
+  "Name": "Clean Code",
+  "Price": 60,
+  "GenderBook": "Computers",
+  "Author": "Robert C. Martin"
+}
+
+###
 
 ###
