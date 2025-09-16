@@ -1,6 +1,7 @@
 ﻿// MongoDB libs 
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Text.Json.Serialization;
 namespace BookStoreApi.Models
 {
     public class Book
@@ -10,9 +11,10 @@ namespace BookStoreApi.Models
         public string? Id { get; set; } // propriedade necessária para mapear o objeto para coleção do MongoDB
 
         [BsonElement("Name")]
+        [JsonPropertyName("Name")]
         public string BookName { get; set; } = null!;
 
-        public string Price { get; set; }
+        public decimal Price { get; set; }
 
         [BsonElement("Category")]
         public string GenderBook { get; set; } = null!;
