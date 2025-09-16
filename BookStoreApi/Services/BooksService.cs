@@ -1,5 +1,6 @@
 ﻿using BookStoreApi.Interfaces;
 using BookStoreApi.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -25,7 +26,7 @@ namespace BookStoreApi.Services
         public async Task CreateAsync(Book newBook) => await _booksCollection.InsertOneAsync(newBook);
 
         public async Task DeleteAsync(string id) => await _booksCollection.DeleteOneAsync(x => x.Id == id);
-
+        
         public async Task<List<Book>> GetAsync() => await _booksCollection.Find(_ => true).ToListAsync();
 
         public async Task<Book?> GetAsync(string id) => await _booksCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
